@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { site } from "@/data/site";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
-import { PhotoPlaceholder } from "./PhotoPlaceholder";
 import { Reveal } from "./Reveal";
 
 const coreValues = [
@@ -20,11 +20,17 @@ export function About() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Visual */}
-          <Reveal className="relative order-1 mx-auto w-full max-w-md lg:order-none">
-            <PhotoPlaceholder
-              label="A photo of Meg & our space, coming soon"
-              icon="heart"
-            />
+          <Reveal className="relative order-1 mx-auto w-full max-w-md lg:order-none lg:max-w-none">
+            {/* PHOTO: the family home in the pines. Swap /images/home-front.jpg to change. */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lift ring-1 ring-beige/60">
+              <Image
+                src="/images/home-front.jpg"
+                alt="The Arrowhead Explorers home, nestled in the pines of North Waterboro, Maine"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+              />
+            </div>
             <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-2xl bg-white px-5 py-3 shadow-card ring-1 ring-beige/60">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sage text-cream">
                 <Icon name="sprout" className="h-5 w-5" />
@@ -51,18 +57,31 @@ export function About() {
               develop confidence in a setting where they are genuinely known.
             </p>
 
-            <div className="mt-8 rounded-2xl border border-beige/60 bg-cream/60 p-6">
-              <h3 className="font-serif text-xl font-semibold text-charcoal">
-                Meet Meg
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal-light sm:text-base">
-                Arrowhead Explorers is being created by Meg — a local mom,
-                business owner, and college student who understands how important
-                it is to find childcare that feels safe, comfortable, and
-                personal. She brings real strengths in organization, communication,
-                and creating dependable systems, along with a genuine passion for
-                building a welcoming environment where children thrive.
-              </p>
+            <div className="mt-8 flex flex-col gap-5 rounded-2xl border border-beige/60 bg-cream/60 p-6 sm:flex-row sm:items-start">
+              {/* PHOTO: Meg's portrait. Swap /images/meg.jpg to change. */}
+              <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-2xl ring-1 ring-beige/60 sm:mx-0">
+                <Image
+                  src="/images/meg.jpg"
+                  alt="Meg, owner of Arrowhead Explorers"
+                  fill
+                  sizes="128px"
+                  className="object-cover object-top"
+                />
+              </div>
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-charcoal">
+                  Meet Meg
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-charcoal-light sm:text-base">
+                  Arrowhead Explorers is being created by Meg — a local mom,
+                  business owner, and college student who understands how
+                  important it is to find childcare that feels safe, comfortable,
+                  and personal. She brings real strengths in organization,
+                  communication, and creating dependable systems, along with a
+                  genuine passion for building a welcoming environment where
+                  children thrive.
+                </p>
+              </div>
             </div>
 
             {/* Mission */}

@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { site } from "@/data/site";
 import { Container } from "./Container";
-import { HeroArt } from "./HeroArt";
 import { Icon } from "./Icon";
 
 export function Hero() {
@@ -75,8 +75,16 @@ export function Hero() {
           {/* Right: illustrated card */}
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="overflow-hidden rounded-[2rem] bg-white shadow-lift ring-1 ring-beige/60">
-              <div className="aspect-[4/5]">
-                <HeroArt />
+              {/* PHOTO: swap /images/playset.jpg for another photo anytime. */}
+              <div className="relative aspect-[4/5]">
+                <Image
+                  src="/images/playset.jpg"
+                  alt="The natural-wood play space at Arrowhead Explorers, tucked among the pines"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 
