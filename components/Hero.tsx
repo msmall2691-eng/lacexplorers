@@ -72,8 +72,8 @@ export function Hero() {
             </p>
           </div>
 
-          {/* Right: illustrated card */}
-          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+          {/* Right: photo card */}
+          <div className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none">
             <div className="overflow-hidden rounded-[2rem] bg-white shadow-lift ring-1 ring-beige/60">
               {/* PHOTO: swap /images/playset.jpg for another photo anytime. */}
               <div className="relative aspect-[4/5]">

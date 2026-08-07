@@ -66,13 +66,14 @@ export const activityGroups: ActivityGroup[] = [
     ],
   },
   {
-    title: "Outdoor",
+    title: "Outdoor & Water",
     icon: "sun",
-    blurb: "Fresh air and plenty of room to move.",
+    blurb: "Fresh air, water fun, and plenty of room to move.",
     items: [
       "Free play",
       "Bubbles",
-      "Water play",
+      "Sprinklers & water tables",
+      "Kiddie-pool splashing",
       "Picnics",
       "Scavenger hunts",
       "Gross-motor play",
