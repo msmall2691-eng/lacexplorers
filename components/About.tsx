@@ -1,0 +1,108 @@
+import { site } from "@/data/site";
+import { Container } from "./Container";
+import { Icon } from "./Icon";
+import { PhotoPlaceholder } from "./PhotoPlaceholder";
+import { Reveal } from "./Reveal";
+
+const coreValues = [
+  "Safety",
+  "Kindness",
+  "Curiosity",
+  "Creativity",
+  "Independence",
+  "Family Partnership",
+  "Outdoor Exploration",
+];
+
+export function About() {
+  return (
+    <section id="about" className="scroll-mt-24 bg-offwhite py-16 sm:py-24">
+      <Container>
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Visual */}
+          <Reveal className="relative order-1 mx-auto w-full max-w-md lg:order-none">
+            <PhotoPlaceholder
+              label="A photo of Meg & our space, coming soon"
+              icon="heart"
+            />
+            <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-2xl bg-white px-5 py-3 shadow-card ring-1 ring-beige/60">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sage text-cream">
+                <Icon name="sprout" className="h-5 w-5" />
+              </span>
+              <span className="text-sm font-medium text-charcoal">
+                Created with love by a local mom
+              </span>
+            </div>
+          </Reveal>
+
+          {/* Copy */}
+          <Reveal>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-sage">
+              About Us
+            </p>
+            <h2 className="font-serif text-3xl font-semibold leading-tight text-charcoal sm:text-4xl">
+              Childcare That Feels Like Home.
+            </h2>
+
+            <p className="mt-5 text-base leading-relaxed text-charcoal-light sm:text-lg">
+              Arrowhead Explorers was created from the idea that childcare can
+              feel warm, simple, and intentional. Children deserve time to play,
+              get messy, ask questions, read stories, explore outdoors, and
+              develop confidence in a setting where they are genuinely known.
+            </p>
+
+            <div className="mt-8 rounded-2xl border border-beige/60 bg-cream/60 p-6">
+              <h3 className="font-serif text-xl font-semibold text-charcoal">
+                Meet Meg
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-charcoal-light sm:text-base">
+                Arrowhead Explorers is being created by Meg — a local mom,
+                business owner, and college student who understands how important
+                it is to find childcare that feels safe, comfortable, and
+                personal. She brings real strengths in organization, communication,
+                and creating dependable systems, along with a genuine passion for
+                building a welcoming environment where children thrive.
+              </p>
+            </div>
+
+            {/* Mission */}
+            <div className="mt-6 rounded-2xl border-l-4 border-sage bg-sage-50 p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-dark">
+                Our Mission
+              </p>
+              <p className="mt-2 font-serif text-lg leading-relaxed text-charcoal">
+                To provide a safe, nurturing, nature-inspired environment where
+                children build confidence, independence, kindness, curiosity, and
+                a lifelong love of learning through play and exploration.
+              </p>
+            </div>
+
+            {/* Values */}
+            <div className="mt-8">
+              <p className="mb-3 text-sm font-semibold text-charcoal">
+                What we value
+              </p>
+              <ul className="flex flex-wrap gap-2">
+                {coreValues.map((value) => (
+                  <li
+                    key={value}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-sage/20 bg-white px-3.5 py-1.5 text-sm font-medium text-sage-dark"
+                  >
+                    <Icon name="check" className="h-4 w-4 text-sage" />
+                    {value}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* subtle honesty note tying to positioning */}
+        <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-charcoal-light/80">
+          {site.positioning} More intentional than babysitting — and thoughtfully
+          designed around play, not a rigid academic program.
+        </p>
+      </Container>
+    </section>
+  );
+}
