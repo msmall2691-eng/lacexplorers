@@ -5,6 +5,7 @@ import { Features } from "@/components/Features";
 import { About } from "@/components/About";
 import { Programs } from "@/components/Programs";
 import { Activities } from "@/components/Activities";
+import { Gallery } from "@/components/Gallery";
 import { PartTime } from "@/components/PartTime";
 import { AdventureClub } from "@/components/AdventureClub";
 import { DailyRhythm } from "@/components/DailyRhythm";
@@ -25,6 +26,7 @@ export default function HomePage() {
         <About />
         <Programs />
         <Activities />
+        <Gallery />
         <PartTime />
         <AdventureClub />
         <DailyRhythm />
