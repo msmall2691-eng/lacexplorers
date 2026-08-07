@@ -9,11 +9,6 @@ import { SectionHeading } from "./SectionHeading";
  */
 const photos = [
   {
-    src: "/images/slide-play.jpg",
-    alt: "A young child playing on the backyard slide",
-    caption: "Everyday play",
-  },
-  {
     src: "/images/nature-play.jpg",
     alt: "A child exploring ferns and rocks in the woods",
     caption: "In the woods",
@@ -22,6 +17,11 @@ const photos = [
     src: "/images/water-play.jpg",
     alt: "A child playing with water outside on a summer day",
     caption: "Water play",
+  },
+  {
+    src: "/images/winter-play.jpg",
+    alt: "Children playing outside in a ride-on truck in winter",
+    caption: "Outside all year",
   },
 ];
 

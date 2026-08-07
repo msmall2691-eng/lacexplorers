@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { site } from "@/data/site";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
 import { Reveal } from "./Reveal";
@@ -74,12 +73,10 @@ export function About() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-charcoal-light sm:text-base">
                   Arrowhead Explorers is being created by Meg — a local mom,
-                  business owner, and college student who understands how
-                  important it is to find childcare that feels safe, comfortable,
-                  and personal. She brings real strengths in organization,
-                  communication, and creating dependable systems, along with a
-                  genuine passion for building a welcoming environment where
-                  children thrive.
+                  business owner, and college student. She knows how much it
+                  matters to find childcare that feels safe, comfortable, and
+                  personal, and she&rsquo;s passionate about building a warm
+                  place where children thrive.
                 </p>
               </div>
             </div>
@@ -115,12 +112,6 @@ export function About() {
             </div>
           </Reveal>
         </div>
-
-        {/* subtle honesty note tying to positioning */}
-        <p className="mx-auto mt-12 max-w-2xl text-center text-sm italic text-charcoal-light/80">
-          {site.positioning} More intentional than babysitting — and thoughtfully
-          designed around play, not a rigid academic program.
-        </p>
       </Container>
     </section>
   );
