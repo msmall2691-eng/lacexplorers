@@ -20,7 +20,7 @@ export function About() {
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Visual */}
-          <Reveal className="relative order-1 mx-auto w-full max-w-md lg:order-none lg:max-w-none">
+          <Reveal className="relative order-1 mx-auto w-full max-w-sm lg:order-none lg:max-w-none">
             {/* PHOTO: the family home in the pines. Swap /images/home-front.jpg to change. */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lift ring-1 ring-beige/60">
               <Image
@@ -59,13 +59,13 @@ export function About() {
 
             <div className="mt-8 flex flex-col gap-5 rounded-2xl border border-beige/60 bg-cream/60 p-6 sm:flex-row sm:items-start">
               {/* PHOTO: Meg's portrait. Swap /images/meg.jpg to change. */}
-              <div className="relative mx-auto h-32 w-32 shrink-0 overflow-hidden rounded-2xl ring-1 ring-beige/60 sm:mx-0">
+              <div className="relative mx-auto aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-2xl ring-1 ring-beige/60 sm:mx-0 sm:w-40">
                 <Image
                   src="/images/meg.jpg"
-                  alt="Meg, owner of Arrowhead Explorers"
+                  alt="Meg, owner of Arrowhead Explorers, with her son"
                   fill
-                  sizes="128px"
-                  className="object-cover object-top"
+                  sizes="160px"
+                  className="object-cover"
                 />
               </div>
               <div>

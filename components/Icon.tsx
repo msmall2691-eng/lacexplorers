@@ -22,6 +22,7 @@ export type IconName =
   | "mail"
   | "phone"
   | "facebook"
+  | "droplet"
   | "arrowRight";
 
 type IconProps = {
@@ -174,6 +175,12 @@ export function Icon({
       return (
         <svg {...common}>
           <path d="M14 8.5V6.8c0-.8.5-1 1-1h1.5V3H14c-2 0-3.3 1.3-3.3 3.4v2.1H8.5V11h2.2v10h3V11h2.3l.5-2.5z" />
+        </svg>
+      );
+    case "droplet":
+      return (
+        <svg {...common}>
+          <path d="M12 3.5c3 3.6 5.5 6.6 5.5 9.7A5.5 5.5 0 0 1 6.5 13.2c0-3.1 2.5-6.1 5.5-9.7Z" />
         </svg>
       );
     case "arrowRight":
