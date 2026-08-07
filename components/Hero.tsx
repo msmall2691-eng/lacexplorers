@@ -5,7 +5,7 @@ import { Icon } from "./Icon";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-offwhite">
+    <section className="relative overflow-hidden bg-offwhite">
       {/* Soft decorative background shapes */}
       <div
         aria-hidden="true"

@@ -19,7 +19,7 @@ export const features: Feature[] = [
   {
     title: "Nature & Outdoor Play",
     description:
-      "Our backyard play space, a neighborhood playground within walking distance, water play in summer, and plenty of fresh air — woven through every day, weather permitting.",
+      "Weather permitting, we're outside as much as possible — exploring, moving, and discovering in the fresh Maine air.",
     icon: "leaf",
   },
   {

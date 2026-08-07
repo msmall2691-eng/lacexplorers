@@ -68,7 +68,7 @@ export const site = {
     subheadline:
       "Small-group, nature-inspired home childcare in North Waterboro, Maine.",
     body:
-      "Arrowhead Explorers is being created to give children a warm, nurturing place to play, explore, create, build friendships, and enjoy childhood at their own pace.",
+      "A warm, nurturing home where children learn, create, and explore — spending most of our days outside.",
   },
 
   // Age range used consistently across the site. Keep every page in sync with this.
