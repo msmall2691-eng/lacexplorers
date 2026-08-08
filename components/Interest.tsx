@@ -37,8 +37,9 @@ export function Interest() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-charcoal-light sm:text-lg">
               Arrowhead Explorers is currently building its interest list for
-              North Waterboro families. Share a little about your family and
-              we&rsquo;ll reach out as enrollment details become available.
+              Lake Arrowhead and North Waterboro families. Share a little about
+              your family and we&rsquo;ll reach out as enrollment details become
+              available.
             </p>
 
             <ul className="mt-7 space-y-3">
