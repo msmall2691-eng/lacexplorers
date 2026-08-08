@@ -36,9 +36,10 @@ export function About() {
               for.
             </h2>
             <p className="mt-5 leading-relaxed text-charcoal-light">
-              As a mom, I know what it feels like to search for care and hope it
-              feels like an extension of your own home. Somewhere small.
-              Somewhere warm. Somewhere your child is known by name.
+              As a mom of three boys — 15, 4, and 3 — I know what it feels like
+              to search for care and hope it feels like an extension of your own
+              home. Somewhere small. Somewhere warm. Somewhere your child is
+              known by name.
             </p>
             <p className="mt-4 leading-relaxed text-charcoal-light">
               Arrowhead Explorers is a nature-based family childcare program in
