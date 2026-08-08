@@ -9,8 +9,8 @@ const photos = [
   { src: "/images/playset.jpg", alt: "The natural-wood backyard play set in the pines", caption: "Our backyard play space" },
   { src: "/images/playground.jpg", alt: "Children playing at the neighborhood playground", caption: "The neighborhood playground" },
   { src: "/images/log-climb.jpg", alt: "Two children climbing a fallen log in the snowy woods", caption: "Climbing in the woods" },
-  { src: "/images/window.jpg", alt: "Children watching the snow fall from a big window", caption: "Watching the snow" },
-  { src: "/images/playground-wide.jpg", alt: "A child heading to the neighborhood playground, a short walk away", caption: "A short walk away" },
+  { src: "/images/sensory-play.jpg", alt: "Children digging for dinosaurs in a sand sensory bin", caption: "Sensory play" },
+  { src: "/images/climbing-wall.jpg", alt: "A child climbing the backyard rock wall", caption: "Up the climbing wall" },
   { src: "/images/home-front.jpg", alt: "The Arrowhead Explorers home in North Waterboro, Maine", caption: "Home in the pines" },
 ];
 

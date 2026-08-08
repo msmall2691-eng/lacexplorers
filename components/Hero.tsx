@@ -44,6 +44,24 @@ export function Hero() {
               See our programs
             </a>
           </div>
+
+          {/* Hero video — a short peek at real days. Portrait clip, muted autoplay loop.
+              PHOTO/VIDEO: swap /videos/hero.mp4 (and the poster) to change. */}
+          <div className="mx-auto mt-11 w-[13.5rem] max-w-full sm:w-56">
+            <div className="relative aspect-[9/16] overflow-hidden rounded-[1.6rem] bg-pine shadow-lift ring-4 ring-white/70">
+              <video
+                className="h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/images/playground.jpg"
+              >
+                <source src="/videos/hero.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
         </div>
       </Container>
 
