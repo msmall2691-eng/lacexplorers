@@ -23,11 +23,11 @@ export function SectionHeading({
       className={`${isCenter ? "mx-auto max-w-2xl text-center" : "max-w-2xl text-left"} ${className}`}
     >
       {eyebrow && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-sage">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-wood">
           {eyebrow}
         </p>
       )}
-      <h2 className="font-serif text-3xl font-semibold leading-tight text-charcoal sm:text-4xl">
+      <h2 className="font-serif text-3xl font-semibold leading-tight text-pine sm:text-4xl">
         {title}
       </h2>
       {children && (

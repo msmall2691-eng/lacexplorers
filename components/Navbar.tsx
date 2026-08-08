@@ -7,10 +7,9 @@ import { Icon } from "./Icon";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Our Days", href: "#rhythm" },
   { label: "Programs", href: "#programs" },
-  { label: "Activities", href: "#activities" },
   { label: "Tuition", href: "#tuition" },
-  { label: "Parent Info", href: "#parent-info" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -38,7 +37,7 @@ export function Navbar() {
         aria-label="Main"
       >
         <a href="#top" className="rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage">
-          <Logo markClassName="h-10 w-10 sm:h-11 sm:w-11" />
+          <Logo markClassName="h-9 w-9 text-sage sm:h-10 sm:w-10" />
           <span className="sr-only">Back to top</span>
         </a>
 

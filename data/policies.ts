@@ -123,19 +123,41 @@ export const closures = {
  * DAILY RHYTHM — a sample day. Kept flexible on purpose.
  */
 export const dailyRhythm = {
-  eyebrow: "A Day at Arrowhead",
-  headline: "Our Daily Rhythm",
-  note: "Times shift depending on the children, the weather, and what we're exploring that day.",
-  blocks: [
-    { time: "7:00 – 8:30", activity: "Arrival & free play" },
-    { time: "8:30", activity: "Morning snack" },
-    { time: "9:00", activity: "Outdoor exploration" },
-    { time: "10:00", activity: "Story / circle time" },
-    { time: "10:30", activity: "Creative or learning activity" },
-    { time: "11:30", activity: "Lunch" },
-    { time: "12:30 – 2:30", activity: "Nap / quiet time" },
-    { time: "2:30", activity: "Snack" },
-    { time: "3:00", activity: "Outdoor play / exploration" },
-    { time: "4:00", activity: "Free play / pick-up" },
+  eyebrow: "A day with us",
+  headline: "Our days follow a rhythm, not a schedule.",
+  intro:
+    "Children settle when they know what comes next. Ours is predictable enough to feel safe and loose enough to follow a good idea when one shows up.",
+  note: "Times shift with the children, the weather, and what we're exploring that day.",
+  stops: [
+    {
+      phase: "Arrival",
+      title: "Slow starts & soft landings",
+      body: "Hooks, boots, hellos. Quiet play while everyone arrives — nobody gets rushed through the door.",
+      icon: "sun" as const,
+    },
+    {
+      phase: "Morning",
+      title: "Outside, whatever the sky is doing",
+      body: "The longest block of the day — trails, mud, sticks, bugs, buckets, snow. We dress for it and we go.",
+      icon: "leaf" as const,
+    },
+    {
+      phase: "Midday",
+      title: "Snack, story, and a good sit-down",
+      body: "Real food at a real table, then books — usually more than we planned, because someone always asks for one more.",
+      icon: "book" as const,
+    },
+    {
+      phase: "Afternoon",
+      title: "Rest, then making things",
+      body: "Quiet time for those who need it, then painting, building, planting, or whatever the week's project has become.",
+      icon: "palette" as const,
+    },
+    {
+      phase: "Pick-up",
+      title: "The handoff, with details",
+      body: "You'll hear what they ate, what they found, and who they played with. Not a summary — the actual story.",
+      icon: "heart" as const,
+    },
   ],
 };

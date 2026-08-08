@@ -34,6 +34,11 @@ const config: Config = {
           light: "#5C5C56",
         },
         offwhite: "#FCFBF8", // Soft white (page background)
+        linen: "#EFE9DE", // Warm off-cream (alternating sections)
+        pine: "#3D4636", // Deep forest green (dark sections)
+        moss: "#C3C9AF", // Pale green
+        wood: "#B79A74", // Warm wood / tan accent
+        goldenrod: "#C6A15B", // Sparing warm accent (sun, focus)
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "Cambria", "serif"],
@@ -48,6 +53,7 @@ const config: Config = {
           "Arial",
           "sans-serif",
         ],
+        hand: ["var(--font-hand)", "ui-serif", "cursive"],
       },
       borderRadius: {
         xl: "1rem",

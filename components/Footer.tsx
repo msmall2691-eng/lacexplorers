@@ -21,7 +21,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Logo
-              markClassName="h-12 w-12"
+              markClassName="h-11 w-11 text-moss"
               textClassName="text-cream"
               descriptorClassName="text-cream/70"
             />
