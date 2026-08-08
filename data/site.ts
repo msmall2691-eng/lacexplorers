@@ -27,11 +27,13 @@ export const site = {
     comingSoon: true,
     // Text for the dismissible notice bar at the very top of the site.
     noticeBar:
-      "🌲 Coming Soon — Now building our interest list for North Waterboro families.",
-    // Short badge shown in the hero.
+      "🌲 Now enrolling our interest list — North Waterboro families welcome.",
+    // Open-ended badge shown in the hero (no firm opening date).
+    noticeBadge: "Now enrolling our interest list",
+    // Short badge (kept for reference / future use).
     heroBadge: "Coming Soon",
     // Honest phase language reused in a few spots.
-    phaseLine: "Currently preparing for opening and building our interest list.",
+    phaseLine: "We're preparing to open and building our interest list.",
   },
 
   location: {

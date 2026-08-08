@@ -29,11 +29,11 @@ export function Interest() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           {/* Left: invitation + contact */}
           <Reveal>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-sage">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-wood">
               {site.cta.primary}
             </p>
-            <h2 className="font-serif text-3xl font-semibold leading-tight text-charcoal sm:text-4xl">
-              Save Your Family&rsquo;s Spot on Our Interest List
+            <h2 className="font-serif text-3xl font-semibold leading-tight text-pine sm:text-4xl">
+              Save your family&rsquo;s spot on our interest list.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-charcoal-light sm:text-lg">
               Arrowhead Explorers is currently building its interest list for

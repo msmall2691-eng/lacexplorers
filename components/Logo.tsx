@@ -1,20 +1,29 @@
 import { site } from "@/data/site";
 
 /**
- * Logo — the brand lockup used in the header and footer.
- *
- * Meg: to use your own logo, either overwrite /public/logo.svg with your file,
- * or drop a PNG in /public and change LOGO_SRC below to e.g. "/logo.png".
- * If your logo file ALREADY contains the words "Arrowhead Explorers", set
- * LOGO_INCLUDES_WORDMARK to true so the name isn't shown twice.
+ * Arrowhead mark — a simple, elegant nod to the "Arrowhead Explorers" name.
+ * Drawn with currentColor so the color is set via the className (e.g. text-sage).
  */
-const LOGO_SRC = "/logo.svg";
-const LOGO_INCLUDES_WORDMARK = false;
-
-export function LogoMark({ className = "h-11 w-11" }: { className?: string }) {
-  // Using a plain <img> keeps the logo trivially swappable (just replace the file).
-  // eslint-disable-next-line @next/next/no-img-element
-  return <img src={LOGO_SRC} alt={`${site.name} logo`} className={className} />;
+export function LogoMark({
+  className = "h-10 w-10 text-sage",
+}: {
+  className?: string;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 28"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 1.5 L21 22 L12 18 L3 22 Z" />
+      <path d="M12 6.5 L12 18" />
+    </svg>
+  );
 }
 
 type LogoProps = {
@@ -27,30 +36,28 @@ type LogoProps = {
 
 export function Logo({
   className = "",
-  markClassName = "h-11 w-11",
+  markClassName = "h-10 w-10 text-sage",
   textClassName = "text-charcoal",
-  descriptorClassName = "text-sage",
+  descriptorClassName = "text-wood",
   showDescriptor = true,
 }: LogoProps) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark className={markClassName} />
-      {!LOGO_INCLUDES_WORDMARK && (
-        <span className="flex flex-col leading-none">
-          <span
-            className={`font-serif text-lg font-semibold tracking-tight sm:text-xl ${textClassName}`}
-          >
-            {site.name}
-          </span>
-          {showDescriptor && (
-            <span
-              className={`mt-1 text-[10px] font-medium uppercase tracking-[0.18em] ${descriptorClassName}`}
-            >
-              {site.descriptor}
-            </span>
-          )}
+      <span className="flex flex-col leading-none">
+        <span
+          className={`font-serif text-lg font-semibold tracking-tight sm:text-xl ${textClassName}`}
+        >
+          {site.name}
         </span>
-      )}
+        {showDescriptor && (
+          <span
+            className={`mt-1 text-[10px] font-medium uppercase tracking-[0.18em] ${descriptorClassName}`}
+          >
+            {site.descriptor}
+          </span>
+        )}
+      </span>
     </span>
   );
 }

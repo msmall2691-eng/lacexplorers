@@ -26,7 +26,7 @@ const faqJsonLd = {
 
 export function FAQ() {
   return (
-    <section id="faq" className="scroll-mt-24 bg-offwhite py-16 sm:py-24">
+    <section id="faq" className="scroll-mt-24 bg-linen py-16 sm:py-24">
       <Container>
         <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions">
           Answers to the questions families ask most. Have another? We&rsquo;d love

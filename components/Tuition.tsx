@@ -1,112 +1,88 @@
-import {
-  ageBasedPricing,
-  pricingMode,
-  scheduleBasedPricing,
-  tuitionNotes,
-} from "@/data/pricing";
+import { scheduleBasedPricing, tuitionNotes } from "@/data/pricing";
+import { hours } from "@/data/site";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
-import { PricingCard } from "./PricingCard";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 
-function ScheduleBased() {
-  const { currency, rows } = scheduleBasedPricing;
-  return (
-    <div className="grid gap-6 sm:grid-cols-3">
-      {rows.map((row, i) => (
-        <Reveal key={row.schedule} delay={i * 70} className="h-full">
-          <PricingCard
-            schedule={row.schedule}
-            price={row.price}
-            currency={currency}
-            featured={i === 1}
-          />
-        </Reveal>
-      ))}
-    </div>
-  );
-}
-
-function AgeBased() {
-  const { currency, groups } = ageBasedPricing;
-  return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      {groups.map((group, gi) => (
-        <Reveal key={group.label} delay={gi * 90}>
-          <div className="h-full rounded-2xl border border-beige/60 bg-white p-7 shadow-soft">
-            <h3 className="font-serif text-2xl font-semibold text-charcoal">
-              {group.label}
-            </h3>
-            <p className="text-sm font-semibold text-sage">{group.sublabel}</p>
-            <ul className="mt-5 divide-y divide-beige/60">
-              {group.rows.map((row) => (
-                <li
-                  key={row.schedule}
-                  className="flex items-center justify-between py-3"
-                >
-                  <span className="text-sm text-charcoal-light">
-                    {row.schedule}
-                  </span>
-                  <span className="font-serif text-xl font-semibold text-charcoal">
-                    {currency}
-                    {row.price}
-                    <span className="ml-1 text-xs font-normal text-charcoal-light">
-                      approx./wk
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-  );
-}
+const included = [
+  "Morning & afternoon snacks",
+  "All art & project materials",
+  "Daily outdoor time & nature play",
+  "Water play in summer",
+  "Photo updates for families",
+  "Small-group care",
+];
 
 export function Tuition() {
+  const { currency, rows } = scheduleBasedPricing;
+
   return (
     <section id="tuition" className="scroll-mt-24 bg-offwhite py-16 sm:py-24">
       <Container>
-        <SectionHeading eyebrow="Tuition" title="Simple, Flexible Tuition">
-          Proposed starting rates for our consistent part-time schedules. You
-          choose the number of days that fit your family&rsquo;s week.
-        </SectionHeading>
+        <Reveal className="mx-auto max-w-2xl">
+          <SectionHeading align="left" eyebrow="Tuition" title="Clear rates, no surprises.">
+            Arrowhead Explorers is built around consistent part-time schedules —
+            choose the number of days that fit your week. Tuition is billed
+            weekly and holds your child&rsquo;s spot.
+          </SectionHeading>
 
-        <div className="mt-12">
-          {pricingMode === "age-based" ? <AgeBased /> : <ScheduleBased />}
-        </div>
-
-        {/* Secondary pricing notes */}
-        <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-beige/60 bg-cream/50 p-5">
-            <p className="text-sm font-semibold text-charcoal">
-              {tuitionNotes.beforeAfterSchool.label}
-            </p>
-            <p className="mt-1 text-sm text-sage-dark">
-              {tuitionNotes.beforeAfterSchool.price}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-beige/60 bg-cream/50 p-5">
-            <p className="text-sm font-semibold text-charcoal">
-              {tuitionNotes.dropIn.label}
-            </p>
-            <p className="mt-1 text-sm text-charcoal-light">
-              {tuitionNotes.dropIn.price}
-            </p>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-8 flex max-w-3xl flex-col gap-2 text-center">
-          <p className="flex items-center justify-center gap-2 text-sm text-charcoal-light">
-            <Icon name="check" className="h-4 w-4 text-sage" />
-            {tuitionNotes.reserves}
+          <p className="mt-4 text-sm font-semibold text-sage-dark">
+            Proposed hours: {hours.summary}, {hours.timeRange}.
           </p>
-          <p className="text-xs italic text-charcoal-light/80">
+
+          {/* Rate rows */}
+          <div className="mt-8 border-t-2 border-pine">
+            {rows.map((row) => (
+              <div
+                key={row.schedule}
+                className="flex items-baseline justify-between gap-4 border-b border-beige/60 py-5"
+              >
+                <span className="font-serif text-lg font-semibold text-pine">
+                  {row.schedule}
+                </span>
+                <span className="whitespace-nowrap font-serif text-2xl font-semibold text-sage">
+                  {currency}
+                  {row.price}
+                  <span className="ml-1 align-baseline text-xs font-semibold uppercase tracking-wide text-wood">
+                    approx/wk
+                  </span>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 text-xs italic text-charcoal-light/80">
             {tuitionNotes.disclaimer}
           </p>
-        </div>
+
+          <div className="mt-6 rounded-xl bg-linen p-5 text-sm">
+            <span className="font-semibold text-pine">
+              {tuitionNotes.beforeAfterSchool.label}:
+            </span>{" "}
+            <span className="text-charcoal-light">
+              {tuitionNotes.beforeAfterSchool.price}
+            </span>
+          </div>
+
+          {/* What's included */}
+          <h3 className="mt-10 font-serif text-xl font-semibold text-pine">
+            What&rsquo;s included
+          </h3>
+          <ul className="mt-4 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+            {included.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm">
+                <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
+                <span className="text-charcoal-light">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-8 font-hand text-xl text-sage-dark">
+            Bring a lunch, a spare set of clothes, and boots you don&rsquo;t mind
+            losing to the mud.
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

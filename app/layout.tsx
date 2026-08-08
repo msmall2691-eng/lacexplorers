@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito_Sans } from "next/font/google";
+import { Fraunces, Karla, Caveat } from "next/font/google";
 import { site, hours } from "@/data/site";
 import "./globals.css";
 
-// Elegant serif for headings, clean sans-serif for body copy.
+// Elegant serif for headings, clean sans for body, handwritten for accents.
 const serif = Fraunces({
   subsets: ["latin"],
   variable: "--font-serif",
@@ -11,11 +11,18 @@ const serif = Fraunces({
   weight: ["400", "500", "600", "700"],
 });
 
-const sans = Nunito_Sans({
+const sans = Karla({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const hand = Caveat({
+  subsets: ["latin"],
+  variable: "--font-hand",
+  display: "swap",
+  weight: ["500", "600"],
 });
 
 const siteUrl =
@@ -102,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable} ${hand.variable}`}>
       <body>
         {children}
         <script

@@ -27,10 +27,10 @@ export function ProgramCard({ program }: { program: Program }) {
         )}
       </div>
 
-      <h3 className="mt-4 font-serif text-2xl font-semibold text-charcoal">
+      <h3 className="mt-4 font-serif text-2xl font-semibold text-pine">
         {program.name}
       </h3>
-      <p className="mt-1 text-sm font-semibold text-sage">{program.age}</p>
+      <p className="mt-1 text-sm font-semibold text-wood">{program.age}</p>
       <p className="mt-3 text-sm italic leading-relaxed text-charcoal-light">
         {program.tagline}
       </p>

@@ -2,40 +2,48 @@ import { dailyRhythm } from "@/data/policies";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
 import { Reveal } from "./Reveal";
-import { SectionHeading } from "./SectionHeading";
 
 export function DailyRhythm() {
   return (
-    <section className="scroll-mt-24 bg-cream py-16 sm:py-24">
+    <section id="rhythm" className="scroll-mt-24 bg-linen py-16 sm:py-24">
       <Container>
-        <SectionHeading eyebrow={dailyRhythm.eyebrow} title={dailyRhythm.headline}>
-          A gentle, predictable flow gives children security — with plenty of room
-          to follow their curiosity.
-        </SectionHeading>
+        <div className="max-w-2xl">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-wood">
+            {dailyRhythm.eyebrow}
+          </p>
+          <h2 className="font-serif text-3xl font-semibold leading-tight text-pine sm:text-4xl">
+            {dailyRhythm.headline}
+          </h2>
+          <p className="mt-4 leading-relaxed text-charcoal-light">
+            {dailyRhythm.intro}
+          </p>
+        </div>
 
-        <ol className="mx-auto mt-12 max-w-2xl">
-          {dailyRhythm.blocks.map((block, i) => (
+        <ol className="mt-10 max-w-2xl">
+          {dailyRhythm.stops.map((stop, i) => (
             <Reveal
               as="li"
-              key={block.time}
-              delay={i * 40}
-              className="grid grid-cols-[5.5rem_1fr] gap-3 sm:grid-cols-[7rem_1fr] sm:gap-4"
+              key={stop.phase}
+              delay={i * 60}
+              className="relative border-l-2 border-dashed border-wood/50 pb-9 pl-8 last:border-transparent last:pb-0 sm:pl-10"
             >
-              <div className="pt-3 text-right text-sm font-semibold text-sage-dark">
-                {block.time}
-              </div>
-              <div className="relative border-l-2 border-sage-light/50 pb-3 pl-5 sm:pl-6">
-                <span className="absolute -left-[7px] top-3.5 h-3 w-3 rounded-full bg-sage ring-4 ring-cream" />
-                <div className="rounded-xl border border-beige/50 bg-white p-3.5 text-sm text-charcoal shadow-soft sm:text-base">
-                  {block.activity}
-                </div>
-              </div>
+              <span className="absolute -left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-linen text-sage-dark ring-4 ring-linen">
+                <Icon name={stop.icon} className="h-4 w-4" />
+              </span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-wood">
+                {stop.phase}
+              </span>
+              <h3 className="mt-1 font-serif text-xl font-semibold text-pine">
+                {stop.title}
+              </h3>
+              <p className="mt-1 max-w-[52ch] text-sm leading-relaxed text-charcoal-light sm:text-base">
+                {stop.body}
+              </p>
             </Reveal>
           ))}
         </ol>
 
-        <p className="mx-auto mt-8 flex max-w-2xl items-center justify-center gap-2 text-center text-sm italic text-charcoal-light">
-          <Icon name="leaf" className="h-4 w-4 text-sage" />
+        <p className="mt-8 max-w-2xl font-hand text-xl text-sage-dark">
           {dailyRhythm.note}
         </p>
       </Container>
