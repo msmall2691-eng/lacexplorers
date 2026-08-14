@@ -39,42 +39,39 @@ export const policyCards: PolicyCard[] = [
     title: "Payment",
     intro: "Tuition reserves your child's scheduled spot each week.",
     bullets: [
-      "Proposed policy: payment is due weekly regardless of attendance.",
-      "This includes child illness, family vacation, and other missed days.",
+      "Due weekly, by Monday morning, for the week ahead.",
+      "It stays the same during vacations, illness, and holidays.",
+      "A $75 one-time registration fee and a two-week deposit (applied to your final two weeks) are due once your place is confirmed.",
     ],
     footnote:
-      "Final payment policies will be confirmed in the Parent Handbook / enrollment agreement.",
+      "Final payment terms are confirmed in your enrollment agreement.",
   },
   {
     title: "Late Pickup",
     intro:
-      // TODO: Confirm the late-pickup fee before opening. Edit `lateFee` below to change everywhere.
-      "A proposed late fee of $1 per minute applies after closing time.",
-    footnote: "Final late-pickup policy will be confirmed before opening.",
+      "There's a ten-minute grace period, then $1 per minute. Life happens — just call.",
   },
   {
     title: "Health & Illness",
     intro:
-      "To keep everyone healthy, children may need to stay home for symptoms such as:",
+      "To keep everyone healthy, please keep your child home for:",
     bullets: [
-      "Fever",
-      "Vomiting",
-      "Diarrhea",
-      "Contagious illness",
-      "Symptoms that prevent normal participation",
+      "A fever of 100.4°F or higher",
+      "Vomiting or diarrhea",
+      "An unexplained rash",
+      "Anything contagious",
     ],
     footnote:
-      "Full health and exclusion policies will be provided in the Parent Handbook.",
+      "Children can return once they've been 24 hours symptom-free without medication.",
   },
   {
     title: "Meals & Snacks",
     intro: "Here's the plan for food through the day:",
     bullets: [
-      "A simple breakfast for early arrivals (before about 8:30).",
-      "A morning snack and an afternoon snack, provided.",
-      "Parents pack a lunch, which we serve together at the table around 11:30.",
+      "A morning snack (around 8:30) and an afternoon snack (around 2:00), both provided.",
+      "Parents pack a lunch and a water bottle — we sit down and eat together around 11:45.",
     ],
-    footnote: "Meal details will be finalized prior to opening.",
+    footnote: "Please tell us about any allergies. Meal details are confirmed at enrollment.",
   },
   {
     title: "What Parents Provide",
@@ -103,24 +100,22 @@ export const lateFee = {
  */
 export const closures = {
   eyebrow: "Holidays & Closures",
-  intro: "Proposed closed holidays (final calendar shared before opening):",
+  intro: "Holidays we're closed (tuition is unchanged during holiday weeks):",
   holidays: [
     "New Year's Day",
     "Memorial Day",
+    "Juneteenth",
     "Independence Day",
     "Labor Day",
-    "Thanksgiving Day",
-    "Day after Thanksgiving",
+    "Thanksgiving",
     "Christmas Eve",
     "Christmas Day",
   ],
-  providerVacation:
-    "Proposed: up to 2 paid weeks of provider vacation annually.",
-  professionalDevelopment:
-    "Proposed: up to 5 training / professional-development days annually.",
-  advanceNotice: "Parents receive advance notice whenever possible.",
+  advanceNotice: "Any other planned closure is announced 30 days ahead.",
+  unexpected:
+    "Unexpected closures are rare — you'll hear from me as early as I can, and tuition is credited for any unexpected closure beyond the first day.",
   weather:
-    "Maine weather closures may reference local school conditions (such as RSU 57), but the provider may make an independent safety decision. Arrowhead Explorers is not required to follow RSU 57.",
+    "We generally follow RSU 57 for full storm closures. A delayed opening usually just means a slower morning here — I'll message you by 6:00 AM either way.",
 };
 
 /**
@@ -136,31 +131,31 @@ export const dailyRhythm = {
     {
       phase: "Arrival",
       title: "Slow starts & soft landings",
-      body: "Hooks, boots, hellos. A simple breakfast for early arrivals, then quiet play while everyone lands — nobody gets rushed through the door.",
+      body: "Hooks, boots, hellos, and quiet play while everyone arrives. We share a morning snack together around 8:30 — nobody gets rushed through the door.",
       icon: "sun" as const,
     },
     {
       phase: "Morning",
       title: "Outside, whatever the sky is doing",
-      body: "The longest block of the day — trails, mud, sticks, bugs, buckets, snow. We break for a snack around 9:30, then head right back out.",
+      body: "By 9:00 we're out — trails, woods, the playground, mud, buckets, snow. Around 11:00 we gather for circle: stories, songs, and a little early literacy.",
       icon: "leaf" as const,
     },
     {
       phase: "Midday",
-      title: "Lunch, a story, and a good sit-down",
-      body: "Lunch at a real table around 11:30, then books — usually more than we planned, because someone always asks for one more.",
+      title: "Lunch, then a good long rest",
+      body: "Packed lunches at a real table around 11:45, then rest and quiet time — a nap for those who need one, a book for those who don't.",
       icon: "book" as const,
     },
     {
       phase: "Afternoon",
-      title: "Rest, a snack, then making things",
-      body: "Quiet time for those who need it. A snack around 3:00 when we wake, then painting, building, planting — whatever the week's project has become.",
+      title: "Snack, then making things",
+      body: "An afternoon snack around 2:00, then the making part of the day — art, sensory play, nature science — before we head back outside for free play.",
       icon: "palette" as const,
     },
     {
       phase: "Pick-up",
       title: "The handoff, with details",
-      body: "You'll hear what they ate, what they found, and who they played with. Not a summary — the actual story.",
+      body: "Between 4:00 and 5:00, with a day recap: what they ate, what they found, and who they played with. Not a summary — the actual story.",
       icon: "heart" as const,
     },
   ],

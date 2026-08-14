@@ -53,10 +53,11 @@ export function Adventures() {
               <Icon name="tree" className="h-5 w-5" />
             </span>
             <div>
-              <p className="font-semibold text-pine">Two places to play</p>
+              <p className="font-semibold text-pine">A short walk from everything</p>
               <p className="mt-1 text-sm leading-relaxed text-charcoal-light">
-                Our own natural play space in the backyard — plus a neighborhood
-                playground within walking distance.
+                Our own fenced backyard play space, with woods beyond — plus a
+                neighborhood playground, the beach, and the school-bus stop, all
+                a short walk away.
               </p>
             </div>
           </Reveal>

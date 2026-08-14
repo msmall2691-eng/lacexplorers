@@ -1,7 +1,7 @@
 /**
- * FAQ — parent questions. Kept honest about the pre-opening / licensing phase.
- * Answers avoid unverified claims (no "licensed", "certified", guaranteed
- * transportation/meals/enrollment/opening date).
+ * FAQ — parent questions, drawn from the Family Information sheet.
+ * Kept honest about the pre-opening / licensing phase: no "licensed" or
+ * "certified" claims, no guaranteed opening date.
  */
 
 export type FaqItem = {
@@ -13,50 +13,71 @@ export const faq: FaqItem[] = [
   {
     question: "What ages do you accept?",
     answer:
-      "Approximately 18 months through school age, depending on program availability.",
+      "18 months through school age. Weekly tuition is split into two age groups — under 2, and 2 through school age — because Maine licensing requires a lower caregiver-to-child ratio for the littlest ones.",
   },
   {
-    question: "Do you offer part-time childcare?",
+    question: "Why Monday through Thursday?",
     answer:
-      "Yes. Arrowhead Explorers is intentionally being designed around consistent 2-, 3-, and 4-day schedules.",
+      "A four-day week keeps the group small, the program well-planned, and the caregiver rested — which is what makes the other four days good ones.",
   },
   {
-    question: "Are you open Fridays?",
-    answer: "Our current proposed schedule is Monday through Thursday.",
-  },
-  {
-    question: "Do you offer before and after school care?",
+    question: "Can I choose which days we come?",
     answer:
-      "It is planned as our Adventure Club program for school-age children. Details will be shared as they are finalized.",
+      "Yes — two- and three-day families choose their days, subject to what's open. Consistent days work best for children, so we keep the same schedule week to week.",
   },
   {
-    question: "Is Arrowhead Explorers a preschool?",
+    question: "What happens when the weather is bad?",
     answer:
-      "It is a home childcare program that incorporates age-appropriate early learning, reading, creativity, and kindergarten-readiness activities through play.",
+      "We go out anyway, dressed for it — that's rather the point. We stay in for thunderstorms, extreme cold, and poor air quality, and we always come in when a child has had enough.",
   },
   {
-    question: "Are you licensed?",
+    question: "Does my child need to be potty trained?",
     answer:
-      "Arrowhead Explorers is currently in the planning / licensing-preparation phase. Enrollment availability and opening details will be shared as they are finalized.",
-  },
-  {
-    question: "Do you spend time outdoors?",
-    answer:
-      "Yes. Outdoor play and nature exploration are central to the program, weather and safety permitting.",
-  },
-  {
-    question: "Do children need to be potty trained?",
-    answer:
-      "Not necessarily. Final age-specific requirements will be outlined during enrollment.",
+      "No. We work alongside you at your child's pace and keep it low-pressure. Just send diapers, wipes, and plenty of spare clothes.",
   },
   {
     question: "Do you provide meals?",
     answer:
-      "Snacks and meal arrangements will be finalized prior to opening. Parents may initially provide lunch.",
+      "We provide a morning snack and an afternoon snack. Parents pack a lunch and a water bottle, and we sit down to eat together around 11:45.",
   },
   {
-    question: "Do you offer full-time 5-day care?",
+    question: "What should I pack?",
     answer:
-      "The program is currently being designed primarily around 2-, 3-, and 4-day enrollment.",
+      "Labeled weather gear (boots, mittens, snow pants, rain suit), a full change of clothes (two in mud season), a packed lunch and water bottle, a nap blanket or comfort item, diapers/wipes/cream if needed, and sunscreen and bug spray in season.",
+  },
+  {
+    question: "Do you offer before- and after-school care?",
+    answer:
+      "Yes. Before or after school is $28/day, before and after is $42/day, and full days on school vacations or no-school days are $52/day. The neighborhood school-bus stop is a short walk from the house.",
+  },
+  {
+    question: "How does payment work?",
+    answer:
+      "Tuition is due weekly, by Monday morning, for the week ahead, and it reserves your child's spot — so it stays the same during vacations, illness, and holidays. There's a $75 one-time registration fee, plus a deposit of two weeks' tuition that's applied to your final two weeks.",
+  },
+  {
+    question: "When should I keep my child home?",
+    answer:
+      "For a fever of 100.4°F or higher, vomiting or diarrhea, an unexplained rash, or anything contagious. Children can come back once they've been 24 hours symptom-free without medication.",
+  },
+  {
+    question: "What about snow days and holiday closures?",
+    answer:
+      "We generally follow RSU 57 for full storm closures; a delayed opening usually just means a slower morning here, and I'll message you by 6:00 AM either way. We're closed for the major holidays, any other planned closure is announced 30 days ahead, and tuition is unchanged during holiday weeks.",
+  },
+  {
+    question: "Do you have pets?",
+    answer:
+      "Yes — cats indoors, and our dog has his own fenced section of the yard, so the children's play space stays theirs. Please tell us about any allergies.",
+  },
+  {
+    question: "Are you licensed?",
+    answer:
+      "We're opening with a very small group while we complete Maine's family childcare licensing process, then growing carefully. Join the interest list and we'll reach out in order as places open.",
+  },
+  {
+    question: "Is Arrowhead Explorers a preschool?",
+    answer:
+      "It's a home childcare program that weaves age-appropriate early learning — reading, letters, creativity, and kindergarten-readiness — into a play-based, mostly-outdoor day.",
   },
 ];

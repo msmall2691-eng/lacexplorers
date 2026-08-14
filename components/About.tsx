@@ -42,6 +42,13 @@ export function About() {
               known by name.
             </p>
             <p className="mt-4 leading-relaxed text-charcoal-light">
+              I&rsquo;ve been caring for children since I was a teenager —
+              babysitting, summers as a camp counselor, then nannying when my
+              first son was born. In between I worked in healthcare, where I
+              learned to stay calm when something goes wrong, and I&rsquo;ve kept
+              my CPR certification current ever since.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal-light">
               Arrowhead Explorers is a nature-based family childcare program in
               North Waterboro, Maine. We&rsquo;re keeping the group small on
               purpose, so days can move at a child&rsquo;s pace — with time to
