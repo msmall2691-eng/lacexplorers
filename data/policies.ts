@@ -68,8 +68,12 @@ export const policyCards: PolicyCard[] = [
   },
   {
     title: "Meals & Snacks",
-    intro:
-      "We plan to offer a morning snack and an afternoon snack. Lunch arrangements are not yet final — parents may initially provide lunch.",
+    intro: "Here's the plan for food through the day:",
+    bullets: [
+      "A simple breakfast for early arrivals (before about 8:30).",
+      "A morning snack and an afternoon snack, provided.",
+      "Parents pack a lunch, which we serve together at the table around 11:30.",
+    ],
     footnote: "Meal details will be finalized prior to opening.",
   },
   {
@@ -132,25 +136,25 @@ export const dailyRhythm = {
     {
       phase: "Arrival",
       title: "Slow starts & soft landings",
-      body: "Hooks, boots, hellos. Quiet play while everyone arrives — nobody gets rushed through the door.",
+      body: "Hooks, boots, hellos. A simple breakfast for early arrivals, then quiet play while everyone lands — nobody gets rushed through the door.",
       icon: "sun" as const,
     },
     {
       phase: "Morning",
       title: "Outside, whatever the sky is doing",
-      body: "The longest block of the day — trails, mud, sticks, bugs, buckets, snow. We dress for it and we go.",
+      body: "The longest block of the day — trails, mud, sticks, bugs, buckets, snow. We break for a snack around 9:30, then head right back out.",
       icon: "leaf" as const,
     },
     {
       phase: "Midday",
-      title: "Snack, story, and a good sit-down",
-      body: "Real food at a real table, then books — usually more than we planned, because someone always asks for one more.",
+      title: "Lunch, a story, and a good sit-down",
+      body: "Lunch at a real table around 11:30, then books — usually more than we planned, because someone always asks for one more.",
       icon: "book" as const,
     },
     {
       phase: "Afternoon",
-      title: "Rest, then making things",
-      body: "Quiet time for those who need it, then painting, building, planting, or whatever the week's project has become.",
+      title: "Rest, a snack, then making things",
+      body: "Quiet time for those who need it. A snack around 3:00 when we wake, then painting, building, planting — whatever the week's project has become.",
       icon: "palette" as const,
     },
     {
