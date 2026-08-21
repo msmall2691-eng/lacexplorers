@@ -1,73 +1,57 @@
 /**
  * =============================================================================
- * TUITION — proposed, editable pricing.
+ * TUITION — weekly rates, school-age care, and terms. Editable here.
  * =============================================================================
- * IMPORTANT: These are STARTING / PROPOSED rates and are subject to final
- * enrollment agreements. This is intentionally easy to change.
+ * Pulled from the Arrowhead Explorers Family Information sheet.
  *
- * You can run tuition in one of two modes. Set `pricingMode` below:
- *
- *   "schedule-based"  -> one simple table by number of days (simplest to manage)
- *   "age-based"       -> separate rates for younger toddlers vs. preschool age
- *
- * The Tuition section reads this flag and shows the matching table automatically.
- * Prices are weekly and are shown with an "approx." qualifier on the site.
+ * Weekly tuition is split by age because Maine licensing requires a lower
+ * caregiver-to-child ratio for children under two. Everything below is plain
+ * data — edit a number or a line and the Tuition section updates.
  */
 
-export type PricingMode = "schedule-based" | "age-based";
-
-// 👉 Change this ONE line to switch how tuition is displayed.
-export const pricingMode: PricingMode = "schedule-based";
-
-/** Simple schedule-based table (used when pricingMode === "schedule-based"). */
-export const scheduleBasedPricing = {
+export const weeklyTuition = {
   currency: "$",
   cadence: "per week",
+  // The two age columns, in display order. `rows[].prices` follows this order.
+  columns: ["Under 2", "2 – school age"],
   rows: [
-    { schedule: "2 Days / week", price: 110 },
-    { schedule: "3 Days / week", price: 165 },
-    { schedule: "4 Days / week", price: 220 },
+    { schedule: "4 days", detail: "Mon–Thu · our full-time", prices: [240, 215] },
+    { schedule: "3 days", detail: "your choice of days", prices: [195, 175] },
+    { schedule: "2 days", detail: "your choice of days", prices: [140, 125] },
   ],
+  ratioNote:
+    "Children under two need a lower caregiver-to-child ratio under Maine's licensing rules, which is why those places cost a little more.",
 };
 
-/** Age-based table (used when pricingMode === "age-based"). */
-export const ageBasedPricing = {
+/** Per-day school-age rates (before/after school, vacation days, drop-ins). */
+export const schoolAgeCare = {
+  eyebrow: "School-age care",
   currency: "$",
-  cadence: "per week",
-  groups: [
-    {
-      label: "Little Explorers",
-      sublabel: "Younger toddlers",
-      rows: [
-        { schedule: "2 Days / week", price: 115 },
-        { schedule: "3 Days / week", price: 165 },
-        { schedule: "4 Days / week", price: 220 },
-      ],
-    },
-    {
-      label: "Explorers",
-      sublabel: "Preschool age",
-      rows: [
-        { schedule: "2 Days / week", price: 110 },
-        { schedule: "3 Days / week", price: 155 },
-        { schedule: "4 Days / week", price: 210 },
-      ],
-    },
+  rows: [
+    { label: "Before or after school", price: 28 },
+    { label: "Before and after school", price: 42 },
+    { label: "Full day — school vacations & no-school days", price: 52 },
+    { label: "Drop-in day — any age, when space allows", price: 70 },
   ],
+  unit: "/ day",
 };
 
-/** Shown for programs whose pricing isn't finalized. */
-export const tuitionNotes = {
-  disclaimer:
-    "Rates shown are proposed starting tuition and are subject to final enrollment agreements.",
-  beforeAfterSchool: {
-    label: "Before & After School (Adventure Club)",
-    price: "Pricing coming soon",
-  },
-  dropIn: {
-    label: "Drop-in care",
-    price:
-      "May be offered in the future based on available space — not a primary service.",
-  },
-  reserves: "Tuition reserves your child's scheduled spot each week.",
-};
+/** Fees and terms shown beneath the tables. */
+export const tuitionTerms = [
+  "Sibling discount — 10% off the younger child's tuition.",
+  "$75 one-time registration fee per family.",
+  "A deposit of two weeks' tuition holds your place, applied to your final two weeks.",
+  "Tuition reserves your child's spot, so it stays the same during vacations, illness, and holidays.",
+];
+
+/** What weekly tuition includes. */
+export const tuitionIncluded = [
+  "Morning and afternoon snacks",
+  "All art, sensory, and activity supplies",
+  "Outdoor time every single day",
+  "Photos and a short note about your child's day",
+  "A small, consistent group and one steady caregiver",
+];
+
+export const tuitionDisclaimer =
+  "Rates are set while we complete Maine's family childcare licensing process, and are confirmed in your enrollment agreement.";
