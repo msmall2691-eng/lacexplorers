@@ -1,5 +1,4 @@
 import { programs } from "@/data/programs";
-import { site } from "@/data/site";
 import { Container } from "./Container";
 import { ProgramCard } from "./ProgramCard";
 import { Reveal } from "./Reveal";
@@ -9,9 +8,9 @@ export function Programs() {
   return (
     <section id="programs" className="scroll-mt-24 bg-cream py-16 sm:py-24">
       <Container>
-        <SectionHeading eyebrow="Our Programs" title="Programs for Every Explorer">
-          Thoughtful, play-based programs for children {site.ageRange}. Each one
-          grows with your child.
+        <SectionHeading eyebrow="Ages &amp; care" title="One small group, mixed by age.">
+          Eighteen months through school age, together — plus before- and
+          after-school care for the big kids.
         </SectionHeading>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">

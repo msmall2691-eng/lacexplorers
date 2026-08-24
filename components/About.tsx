@@ -36,28 +36,24 @@ export function About() {
               for.
             </h2>
             <p className="mt-5 leading-relaxed text-charcoal-light">
-              As a mom of three boys — 15, 4, and 3 — I know what it feels like
-              to search for care and hope it feels like an extension of your own
-              home. Somewhere small. Somewhere warm. Somewhere your child is
-              known by name.
+              I&rsquo;m Megan Small &mdash; Meg to the kids. We&rsquo;re raising
+              three boys of our own here: Myles, who&rsquo;s fifteen, and Oakley
+              and Orion, four and three. This is a family home, not a facility,
+              so your child joins a house already built around small people.
             </p>
             <p className="mt-4 leading-relaxed text-charcoal-light">
-              I&rsquo;ve been caring for children since I was a teenager —
+              I&rsquo;ve cared for children since I was a teenager &mdash;
               babysitting, summers as a camp counselor, then nannying when my
-              first son was born. In between I worked in healthcare, where I
-              learned to stay calm when something goes wrong, and I&rsquo;ve kept
-              my CPR certification current ever since.
+              first son was born. In between I worked in healthcare, which taught
+              me to stay calm when something goes wrong and keeps my CPR
+              certification current. These days I&rsquo;m also studying at the
+              University of Southern Maine.
             </p>
             <p className="mt-4 leading-relaxed text-charcoal-light">
-              Arrowhead Explorers is a nature-based family childcare program in
-              North Waterboro, Maine. We&rsquo;re keeping the group small on
-              purpose, so days can move at a child&rsquo;s pace — with time to
-              dig, wonder, ask the same question four times, and get properly
-              muddy.
-            </p>
-            <p className="mt-4 leading-relaxed text-charcoal-light">
-              Most of our learning happens outside. The rest happens on the rug
-              with a stack of books and a snack.
+              We keep the group small on purpose and spend most of the day
+              outside &mdash; trails, mud, the beach down the road, and whatever
+              the Maine season is doing. The rest happens on the rug, with a
+              stack of books and a snack.
             </p>
 
             <blockquote className="mt-7 border-l-2 border-wood pl-5 font-serif text-lg italic leading-relaxed text-pine">

@@ -49,8 +49,7 @@ export const site = {
 
   contact: {
     email: "lacexplorers@gmail.com",
-    // TODO: Add a public phone number here if Meg wants one shown, or leave "".
-    phone: "",
+    phone: "207-432-9492",
     facebookUrl: "https://www.facebook.com/profile.php?id=61593153324475",
     facebookLabel: "Arrowhead Explorers | North Waterboro, Maine",
   },
