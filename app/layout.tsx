@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Karla, Caveat } from "next/font/google";
 import { site, hours } from "@/data/site";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Elegant serif for headings, clean sans for body, handwritten for accents.
@@ -112,6 +113,7 @@ export default function RootLayout({
     <html lang="en" className={`${serif.variable} ${sans.variable} ${hand.variable}`}>
       <body>
         {children}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
