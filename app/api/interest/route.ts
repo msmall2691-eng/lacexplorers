@@ -32,6 +32,11 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 // form at formspree.io, set its notification email, and drop the id in.
 const FORMSPREE_FORM_ID = process.env.FORMSPREE_FORM_ID || "";
 
+// Web3Forms: no account needed — enter an email at web3forms.com, get an access
+// key by return email, and every submission is forwarded to that inbox. The key
+// can only send mail to its own registered address, so it's low-sensitivity.
+const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY || "";
+
 function escapeHtml(value: unknown): string {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -110,6 +115,35 @@ async function sendViaResend(data: InterestPayload) {
   if (!res.ok) {
     const detail = await res.text();
     throw new Error(`Resend error ${res.status}: ${detail}`);
+  }
+}
+
+async function sendViaWeb3Forms(data: InterestPayload) {
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `New Interest Inquiry — ${data.parentName || "Arrowhead Explorers"}`,
+      from_name: "Arrowhead Explorers Website",
+      replyto: data.email,
+      "Parent / Guardian": data.parentName,
+      Email: data.email,
+      Phone: data.phone,
+      "Child's Name": data.childName,
+      "Child's Age": data.childAge,
+      "Child's DOB": data.childDob,
+      "Desired Start": data.desiredStart,
+      "Desired Schedule": data.desiredSchedule,
+      "Preferred Days": (data.preferredDays || []).join(", "),
+      "School Name": data.schoolName,
+      Message: data.message,
+      Submitted: data.submittedAt,
+    }),
+  });
+  if (!res.ok) {
+    const detail = await res.text();
+    throw new Error(`Web3Forms error ${res.status}: ${detail}`);
   }
 }
 
@@ -192,13 +226,14 @@ export async function POST(request: Request) {
   }
 
   const providers: Promise<void>[] = [];
+  if (WEB3FORMS_ACCESS_KEY) providers.push(sendViaWeb3Forms(data));
   if (FORMSPREE_FORM_ID) providers.push(sendViaFormspree(data));
   if (RESEND_API_KEY && NOTIFY_EMAIL) providers.push(sendViaResend(data));
   if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY) providers.push(saveToSupabase(data));
 
   // No provider configured yet — accept in "demo mode" so the site is usable
-  // out of the box. Set FORMSPREE_FORM_ID (simplest) or connect Resend/Supabase
-  // before sharing the site publicly so inquiries are actually delivered.
+  // out of the box. Set WEB3FORMS_ACCESS_KEY or FORMSPREE_FORM_ID (simplest), or
+  // connect Resend/Supabase, before sharing the site so inquiries are delivered.
   if (providers.length === 0) {
     console.warn(
       "[interest] No delivery provider configured. Inquiry received but NOT persisted:",
