@@ -51,8 +51,7 @@ export const site = {
     email: "lacexplorers@gmail.com",
     // TODO: Add a public phone number here if Meg wants one shown, or leave "".
     phone: "",
-    // TODO: Replace with the real Facebook page URL once it exists.
-    facebookUrl: "https://www.facebook.com/",
+    facebookUrl: "https://www.facebook.com/profile.php?id=61593153324475",
     facebookLabel: "Arrowhead Explorers | North Waterboro, Maine",
   },
 

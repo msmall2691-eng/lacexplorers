@@ -26,7 +26,7 @@ const hand = Caveat({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://arrowheadexplorers.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.lacexplorers.online";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
