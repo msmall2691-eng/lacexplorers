@@ -3,10 +3,11 @@ import { Logo } from "./Logo";
 import { Icon } from "./Icon";
 
 const footerLinks = [
-  { label: "Programs", href: "#programs" },
-  { label: "Activities", href: "#activities" },
+  { label: "About", href: "#about" },
+  { label: "Our Days", href: "#rhythm" },
+  { label: "Ages & Care", href: "#programs" },
+  { label: "Adventures", href: "#adventures" },
   { label: "Tuition", href: "#tuition" },
-  { label: "Parent Information", href: "#parent-info" },
   { label: "FAQ", href: "#faq" },
   { label: "Join Interest List", href: "#interest" },
 ];

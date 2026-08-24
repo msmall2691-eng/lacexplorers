@@ -1,15 +1,10 @@
 /**
  * =============================================================================
- * PROGRAMS — the age-based program cards.
+ * CARE & AGES — how the group actually works.
  * =============================================================================
- * Edit ages, focus points, and status here. `status` controls the badge:
- *   "planned"  -> shown as "Coming Soon"
- *   "future"   -> shown as "Future Program"
- *   undefined  -> no badge
- *
- * Note on framing: these are home-childcare programs that include age-appropriate
- * early learning — NOT a formal preschool or academy. Keep the language warm and
- * play-based.
+ * Arrowhead Explorers is ONE small, mixed-age group (18 months through school
+ * age), plus school-age care built around the neighborhood bus stop. These two
+ * cards describe that — no separate branded "programs."
  */
 
 export type Program = {
@@ -19,80 +14,43 @@ export type Program = {
   tagline: string;
   focus: string[];
   status?: "planned" | "future";
-  // Extra note shown under the card (used for Adventure Club's bus wording).
+  // Optional note shown under the card.
   note?: string;
   icon: "sprout" | "leaf" | "bus" | "sun";
 };
 
 export const programs: Program[] = [
   {
-    id: "little-explorers",
-    name: "Little Explorers",
-    age: "Approximately 18 months – 3 years",
-    tagline: "First discoveries, big feelings, and lots of gentle guidance.",
+    id: "mixed-age",
+    name: "Our mixed-age group",
+    age: "18 months – school age",
+    tagline:
+      "One small group, together — older children help the younger ones, and the younger ones stretch to keep up.",
     focus: [
-      "Sensory play",
-      "Language development",
-      "Music & movement",
-      "Simple art",
-      "Outdoor exploration",
-      "Early independence",
-      "Comforting routines",
-      "Social-emotional learning",
-    ],
-    icon: "sprout",
-  },
-  {
-    id: "explorers",
-    name: "Explorers",
-    age: "Approximately 3 – 5 years",
-    tagline: "Curiosity-led learning through stories, nature, and imagination.",
-    focus: [
-      "Early learning through play",
+      "Outdoor exploration in every season",
+      "Sensory play & nature science",
       "Stories & early literacy",
-      "Letters & numbers woven into activities",
-      "Art & creativity",
-      "Nature & science exploration",
-      "Imaginative play",
-      "Kindergarten readiness — without a rigid academic environment",
+      "Art & creative projects",
+      "Music & movement",
+      "Rest & quiet time after lunch",
+      "Practical life — pouring, cleanup, boots on your own",
     ],
     icon: "leaf",
   },
   {
-    id: "adventure-club",
-    name: "Adventure Club",
-    age: "School age",
-    tagline: "Big kids are explorers too.",
+    id: "school-age",
+    name: "School-age care",
+    age: "Before & after school · no-school days",
+    tagline:
+      "We walk to the Victoria Lane bus stop together, morning and afternoon — the little ones ride along in the wagon.",
     focus: [
       "Before-school care",
       "After-school care",
-      "Afternoon snack",
-      "Outdoor play",
+      "Full days on RSU 57 vacations & no-school days",
       "Homework & quiet time",
-      "Creative activities",
-      "Friendships",
-      "School-vacation days (possible in the future)",
+      "Outdoor play & the neighborhood playground",
     ],
-    status: "planned",
-    note:
-      "Before & after-school care options are planned, with neighborhood bus access being explored. (We can't promise direct school transportation, but the Lake Arrowhead neighborhood bus stop is nearby.)",
     icon: "bus",
-  },
-  {
-    id: "summer-explorers",
-    name: "Summer Explorers",
-    age: "Warm-weather program",
-    tagline: "Sunshine, gardens, and outdoor adventures.",
-    focus: [
-      "Nature days",
-      "Gardening",
-      "Outdoor & water play",
-      "Crafts",
-      "Summer reading",
-      "Scavenger hunts",
-      "Nature science",
-    ],
-    status: "future",
-    icon: "sun",
+    note: "We're in RSU 57 (Massabesic), and the bus stop is a short walk from our door. See Tuition for before/after-school and no-school-day rates.",
   },
 ];

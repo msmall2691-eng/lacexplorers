@@ -48,12 +48,12 @@ export const faq: FaqItem[] = [
   {
     question: "Do you offer before- and after-school care?",
     answer:
-      "Yes. Before or after school is $28/day, before and after is $42/day, and full days on school vacations or no-school days are $52/day. The neighborhood school-bus stop is a short walk from the house.",
+      "Yes. Before or after school is $28/day, before and after is $42/day, and full days on RSU 57 vacations and no-school days are $52/day. We're in RSU 57 (Massabesic), and the bus stop is a short walk from our door — we walk down together, morning and afternoon.",
   },
   {
     question: "How does payment work?",
     answer:
-      "Tuition is due weekly, by Monday morning, for the week ahead, and it reserves your child's spot — so it stays the same during vacations, illness, and holidays. There's a $75 one-time registration fee, plus a deposit of two weeks' tuition that's applied to your final two weeks.",
+      "Tuition is due weekly, by Monday morning, for the week ahead — by Venmo, check, or cash — and it reserves your child's spot, so it stays the same during vacations, illness, and holidays. You'll get a year-end statement with my tax ID for the federal child-care tax credit. There's also a $75 one-time registration fee and a deposit of two weeks' tuition, applied to your final two weeks.",
   },
   {
     question: "When should I keep my child home?",

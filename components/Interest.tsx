@@ -65,6 +65,17 @@ export function Interest() {
                     {site.contact.email}
                   </a>
                 </li>
+                {site.contact.phone && (
+                  <li>
+                    <a
+                      href={`tel:${site.contact.phone.replace(/[^\d+]/g, "")}`}
+                      className="inline-flex items-center gap-2 text-sage-dark transition hover:text-sage"
+                    >
+                      <Icon name="phone" className="h-4 w-4" />
+                      {site.contact.phone}
+                    </a>
+                  </li>
+                )}
                 <li>
                   <a
                     href={site.contact.facebookUrl}
