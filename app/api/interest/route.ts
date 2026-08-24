@@ -27,6 +27,11 @@ const RESEND_FROM_EMAIL =
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
+// Formspree: the simplest way to get inquiries into an inbox. The form ID is a
+// public value (not a secret), so it can live here or in an env var. Create a
+// form at formspree.io, set its notification email, and drop the id in.
+const FORMSPREE_FORM_ID = process.env.FORMSPREE_FORM_ID || "";
+
 function escapeHtml(value: unknown): string {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -108,6 +113,33 @@ async function sendViaResend(data: InterestPayload) {
   }
 }
 
+async function sendViaFormspree(data: InterestPayload) {
+  const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      _subject: `New Interest Inquiry — ${data.parentName || "Arrowhead Explorers"}`,
+      _replyto: data.email,
+      "Parent / Guardian": data.parentName,
+      Email: data.email,
+      Phone: data.phone,
+      "Child's Name": data.childName,
+      "Child's Age": data.childAge,
+      "Child's DOB": data.childDob,
+      "Desired Start": data.desiredStart,
+      "Desired Schedule": data.desiredSchedule,
+      "Preferred Days": (data.preferredDays || []).join(", "),
+      "School Name": data.schoolName,
+      Message: data.message,
+      Submitted: data.submittedAt,
+    }),
+  });
+  if (!res.ok) {
+    const detail = await res.text();
+    throw new Error(`Formspree error ${res.status}: ${detail}`);
+  }
+}
+
 async function saveToSupabase(data: InterestPayload) {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/interest_inquiries`, {
     method: "POST",
@@ -160,11 +192,12 @@ export async function POST(request: Request) {
   }
 
   const providers: Promise<void>[] = [];
+  if (FORMSPREE_FORM_ID) providers.push(sendViaFormspree(data));
   if (RESEND_API_KEY && NOTIFY_EMAIL) providers.push(sendViaResend(data));
   if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY) providers.push(saveToSupabase(data));
 
   // No provider configured yet — accept in "demo mode" so the site is usable
-  // out of the box. Connect Resend or Supabase (see README / .env.example)
+  // out of the box. Set FORMSPREE_FORM_ID (simplest) or connect Resend/Supabase
   // before sharing the site publicly so inquiries are actually delivered.
   if (providers.length === 0) {
     console.warn(
