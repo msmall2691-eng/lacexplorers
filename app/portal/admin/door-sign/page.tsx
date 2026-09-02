@@ -40,16 +40,16 @@ export default async function DoorSignPage() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-md rounded-3xl border border-wood/25 bg-white p-8 text-center print:border-0">
+      <div className="mx-auto max-w-md rounded-3xl border border-wood/25 bg-white p-8 text-center print:mt-12 print:max-w-xl print:border-0">
         <div className="mb-3 flex items-center justify-center gap-2 text-pine">
           <Leaf size={22} strokeWidth={1.5} />
           <span className="font-serif text-xl tracking-tight">{site.shortName}</span>
         </div>
-        <h1 className="font-serif text-3xl text-pine">Sign In &amp; Out Here</h1>
-        <p className="mt-1 text-sm text-charcoal-light">Scan with your phone camera</p>
+        <h1 className="font-serif text-3xl text-pine print:text-5xl">Sign In &amp; Out Here</h1>
+        <p className="mt-1 text-sm text-charcoal-light print:text-base">Scan with your phone camera</p>
 
         {/* eslint-disable-next-line @next/next/no-img-element -- data URL */}
-        <img src={qr} alt="Check-in QR code" className="mx-auto my-6 w-full max-w-[280px]" />
+        <img src={qr} alt="Check-in QR code" className="mx-auto my-6 w-full max-w-[280px] print:max-w-[360px]" />
 
         <ol className="mx-auto max-w-xs space-y-2 text-left text-sm text-charcoal">
           <li className="flex gap-2">

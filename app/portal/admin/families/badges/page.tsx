@@ -31,6 +31,7 @@ export default async function BadgesPage() {
   const badges = await Promise.all(
     families.map(async (f) => ({
       family: f,
+      children: await store.listChildren(f.id),
       qr: await QRCode.toDataURL(`${base}/portal/kiosk?badge=${encodeURIComponent(f.badgeCode)}`, {
         margin: 1,
         width: 240,
@@ -50,11 +51,11 @@ export default async function BadgesPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {badges.map(({ family, qr }) => (
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 print:grid-cols-3 print:gap-6">
+        {badges.map(({ family, children, qr }) => (
           <div
             key={family.id}
-            className="break-inside-avoid rounded-2xl border border-wood/25 bg-white p-4 text-center"
+            className="break-inside-avoid rounded-2xl border-2 border-dashed border-wood/40 bg-white p-4 text-center"
           >
             <div className="mb-2 flex items-center justify-center gap-1.5 text-pine">
               <Leaf size={14} strokeWidth={1.5} />
@@ -63,7 +64,12 @@ export default async function BadgesPage() {
             {/* eslint-disable-next-line @next/next/no-img-element -- data URL */}
             <img src={qr} alt={`Check-in badge for the ${family.name} family`} className="mx-auto w-full max-w-[160px]" />
             <p className="mt-2 font-serif text-lg text-charcoal">{family.name} family</p>
-            <p className="text-[10px] text-charcoal-light">Scan at the door to sign in &amp; out</p>
+            {children.length > 0 && (
+              <p className="text-xs text-pine">{children.map((c) => c.name).join(" · ")}</p>
+            )}
+            <p className="mt-1 text-[10px] text-charcoal-light">
+              Scan with your phone to sign in &amp; out
+            </p>
           </div>
         ))}
       </div>
