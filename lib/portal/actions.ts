@@ -79,8 +79,9 @@ export async function lockKiosk() {
 
 /**
  * Record a check-in or check-out from the kiosk.
- * Authorized by either an unlocked kiosk device OR a valid badge code
- * (possession of the printed family badge is the credential).
+ * Authorized by an unlocked kiosk device, a staff session, a valid badge
+ * code (possession of the printed family badge is the credential), or a
+ * parent's own portal session — but only for their own family.
  */
 export async function kioskRecord(input: {
   familyId: string;
@@ -95,6 +96,12 @@ export async function kioskRecord(input: {
   if (!authorized && input.badgeCode) {
     const fam = await store.getFamilyByBadge(input.badgeCode);
     authorized = fam !== null && fam.id === input.familyId;
+  }
+  if (!authorized) {
+    // A parent signed into the portal on their own phone (e.g. after scanning
+    // the door poster QR) may check their own children in and out.
+    const sessionFamilyId = await getFamilySession();
+    authorized = sessionFamilyId !== null && sessionFamilyId === input.familyId;
   }
   if (!authorized) return { ok: false, error: "This device isn't set up for check-in — ask staff to unlock it." };
 

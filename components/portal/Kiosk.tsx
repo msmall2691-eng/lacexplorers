@@ -93,11 +93,9 @@ export default function Kiosk({
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center p-6">
       <div className="w-full max-w-sm">
-        {!badgeMode && (
-          <Link href="/portal" className="mb-6 flex items-center justify-center gap-1 text-xs text-charcoal-light">
-            <ArrowLeft size={14} /> Exit kiosk
-          </Link>
-        )}
+        <Link href="/portal" className="mb-6 flex items-center justify-center gap-1 text-xs text-charcoal-light">
+          <ArrowLeft size={14} /> {badgeMode ? "Family portal" : "Exit kiosk"}
+        </Link>
         <div className="mb-6 flex items-center justify-center gap-2 text-pine">
           <Leaf size={20} strokeWidth={1.5} />
           <span className="font-serif text-lg tracking-tight">Arrowhead Explorers</span>
