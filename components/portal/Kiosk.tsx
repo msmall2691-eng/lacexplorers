@@ -179,8 +179,8 @@ export default function Kiosk({
           ) : (
             <div className="flex flex-col items-center gap-3 text-cream/80">
               <Users size={44} strokeWidth={1.25} />
-              <p className="font-serif text-lg">Tap your family below</p>
-              <p className="text-xs text-water">to sign everyone in or out</p>
+              <p className="font-serif text-xl">Welcome!</p>
+              <p className="text-sm text-water">Tap your family name below</p>
             </div>
           )}
         </div>
