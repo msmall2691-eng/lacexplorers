@@ -37,12 +37,20 @@ export default async function AdminFamiliesPage() {
             Each family gets a 4-digit portal code and a printable check-in badge.
           </p>
         </div>
-        <Link
-          href="/portal/admin/families/badges"
-          className="whitespace-nowrap rounded-full bg-linen px-4 py-2 text-xs font-medium text-charcoal"
-        >
-          Print badges
-        </Link>
+        <div className="flex gap-2">
+          <Link
+            href="/portal/admin/door-sign"
+            className="whitespace-nowrap rounded-full bg-pine px-4 py-2 text-xs font-medium text-cream"
+          >
+            Print door sign
+          </Link>
+          <Link
+            href="/portal/admin/families/badges"
+            className="whitespace-nowrap rounded-full bg-linen px-4 py-2 text-xs font-medium text-charcoal"
+          >
+            Print badges
+          </Link>
+        </div>
       </div>
 
       <form action={adminCreateFamily} className="space-y-3 rounded-2xl bg-white p-4">
