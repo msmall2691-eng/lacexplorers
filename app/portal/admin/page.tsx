@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogIn, LogOut } from "lucide-react";
+import { getStaffSession } from "@/lib/portal/auth";
 import { getStore } from "@/lib/portal/store";
 import { adminQuickAttendance } from "@/lib/portal/actions";
 import { formatLongDate, formatTime, todayISO } from "@/lib/portal/dates";
@@ -9,6 +10,9 @@ import { formatLongDate, formatTime, todayISO } from "@/lib/portal/dates";
  * plus quick links to today's tasks.
  */
 export default async function AdminTodayPage() {
+  // Defense in depth: the layout renders the sign-in screen without a staff
+  // session, but pages must not fetch data for unauthenticated requests either.
+  if (!(await getStaffSession())) return null;
   const store = await getStore();
   const today = todayISO();
   const [families, attendance] = await Promise.all([
