@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getStaffSession } from "@/lib/portal/auth";
 import { getStore } from "@/lib/portal/store";
 import {
   adminAddChild,
@@ -13,6 +14,9 @@ import {
  * and a printable QR badge for the door kiosk.
  */
 export default async function AdminFamiliesPage() {
+  // Defense in depth: the layout renders the sign-in screen without a staff
+  // session, but pages must not fetch data for unauthenticated requests either.
+  if (!(await getStaffSession())) return null;
   const store = await getStore();
   const families = await store.listFamilies();
   const childrenByFamily = new Map(

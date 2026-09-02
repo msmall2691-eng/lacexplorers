@@ -2,6 +2,7 @@ import QRCode from "qrcode";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { Leaf } from "lucide-react";
+import { getStaffSession } from "@/lib/portal/auth";
 import { getStore } from "@/lib/portal/store";
 import { site } from "@/data/site";
 
@@ -14,6 +15,9 @@ export const dynamic = "force-dynamic";
  * Print, cut out, and hand one to each family for a keychain or wallet.
  */
 export default async function BadgesPage() {
+  // Defense in depth: the layout renders the sign-in screen without a staff
+  // session, but pages must not fetch data for unauthenticated requests either.
+  if (!(await getStaffSession())) return null;
   const store = await getStore();
   const families = await store.listFamilies();
 

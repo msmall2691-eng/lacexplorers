@@ -1,4 +1,5 @@
 import { Leaf } from "lucide-react";
+import { getStaffSession } from "@/lib/portal/auth";
 import { getStore, isDemoMode } from "@/lib/portal/store";
 import { adminDeletePhoto, adminUploadPhoto } from "@/lib/portal/actions";
 import { formatShortDate } from "@/lib/portal/dates";
@@ -13,6 +14,9 @@ export default async function AdminPhotosPage({
 }: {
   searchParams: Promise<{ saved?: string }>;
 }) {
+  // Defense in depth: the layout renders the sign-in screen without a staff
+  // session, but pages must not fetch data for unauthenticated requests either.
+  if (!(await getStaffSession())) return null;
   const store = await getStore();
   const params = await searchParams;
   const families = await store.listFamilies();

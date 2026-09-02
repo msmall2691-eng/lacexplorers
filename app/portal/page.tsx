@@ -36,18 +36,21 @@ export default async function PortalPage({
             action={loginWithPin}
             hint={isDemoMode() ? "Demo codes: 1234, 5678, or 2468" : undefined}
           />
-          <div className="mt-6 space-y-2 text-center">
+          <div className="mt-8 space-y-2 border-t border-wood/15 pt-5 text-center">
+            <p className="text-[11px] uppercase tracking-wide text-charcoal-light/60">
+              Not what you&apos;re looking for?
+            </p>
             <Link
               href="/portal/kiosk"
-              className="block text-xs text-pine/70 underline underline-offset-2"
+              className="block text-xs text-pine/80 underline underline-offset-2"
             >
-              Family check-in kiosk →
+              Door check-in tablet — sign kids in &amp; out at drop-off / pick-up →
             </Link>
             <Link
               href="/portal/admin"
-              className="block text-xs text-charcoal-light/60 underline underline-offset-2"
+              className="block text-xs text-charcoal-light/70 underline underline-offset-2"
             >
-              Staff sign-in
+              Staff dashboard — daily logs, attendance &amp; families (staff code) →
             </Link>
           </div>
         </div>
