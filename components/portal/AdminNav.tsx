@@ -15,7 +15,7 @@ const LINKS = [
 export default function AdminNav() {
   const pathname = usePathname();
   return (
-    <nav className="sticky top-0 z-10 overflow-x-auto border-b border-wood/15 bg-white/70 backdrop-blur">
+    <nav className="sticky top-0 z-10 overflow-x-auto border-b border-wood/15 bg-white/70 backdrop-blur print:hidden">
       <div className="mx-auto flex max-w-2xl">
         {LINKS.map((l) => {
           const active = pathname === l.href;

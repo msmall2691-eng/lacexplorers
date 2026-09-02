@@ -38,7 +38,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div className="min-h-screen">
-      <header className="bg-pine px-5 pb-4 pt-5 text-cream">
+      <header className="bg-pine px-5 pb-4 pt-5 text-cream print:hidden">
         <div className="mx-auto flex max-w-2xl items-center justify-between">
           <div className="flex items-center gap-2">
             <Leaf size={18} strokeWidth={1.5} className="text-water" />
@@ -50,7 +50,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </div>
       </header>
       <AdminNav />
-      <main className="mx-auto max-w-2xl p-5 pb-16">{children}</main>
+      <main className="mx-auto max-w-2xl p-5 pb-16 print:max-w-none print:p-0">{children}</main>
     </div>
   );
 }
