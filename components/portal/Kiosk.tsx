@@ -3,7 +3,7 @@
 import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Check, Leaf, QrCode } from "lucide-react";
+import { ArrowLeft, Check, Leaf, Users } from "lucide-react";
 import { kioskRecord } from "@/lib/portal/actions";
 
 /**
@@ -178,9 +178,9 @@ export default function Kiosk({
             </div>
           ) : (
             <div className="flex flex-col items-center gap-3 text-cream/80">
-              <QrCode size={44} strokeWidth={1.25} />
-              <p className="font-serif text-lg">Hold up your family badge</p>
-              <p className="text-xs text-water">or tap your family below</p>
+              <Users size={44} strokeWidth={1.25} />
+              <p className="font-serif text-lg">Tap your family below</p>
+              <p className="text-xs text-water">to sign everyone in or out</p>
             </div>
           )}
         </div>
