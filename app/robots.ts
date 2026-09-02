@@ -4,7 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   const base =
     process.env.NEXT_PUBLIC_SITE_URL || "https://arrowheadexplorers.com";
   return {
-    rules: { userAgent: "*", allow: "/" },
+    // The parent portal is private — keep it out of search engines.
+    rules: { userAgent: "*", allow: "/", disallow: "/portal" },
     sitemap: `${base}/sitemap.xml`,
   };
 }

@@ -26,9 +26,10 @@ list** while the program is in its planning / licensing-preparation phase.
    - [Programs, activities, FAQ, policies](#programs-activities-faq-policies)
    - [Replacing the logo & photos](#replacing-the-logo--photos)
 3. [Connecting the Interest form](#connecting-the-interest-form)
-4. [Deploying to Vercel](#deploying-to-vercel)
-5. [Project structure](#project-structure)
-6. [Before you open — final checklist](#before-you-open--final-checklist)
+4. [The Parent Portal](#the-parent-portal-portal) — daily logs, check-in kiosk, staff dashboard
+5. [Deploying to Vercel](#deploying-to-vercel)
+6. [Project structure](#project-structure)
+7. [Before you open — final checklist](#before-you-open--final-checklist)
 
 ---
 
@@ -206,6 +207,64 @@ Then fill in one of these in `.env.local`:
 
 > You can even use A **and** B together — if both Resend and Supabase are
 > configured, each inquiry is emailed to you _and_ saved to the database.
+
+---
+
+## The Parent Portal (`/portal`)
+
+The site now includes a private **family portal** — a mini-app for enrolled
+families, separate from the public marketing pages:
+
+- **Parents** sign in with a 4-digit family code and see their child's day:
+  the daily write-up, focus, mood, nap, meals, this week's attendance
+  (sign-in/out times and who dropped off / picked up), the weekly schedule,
+  and a photo journal.
+- **The check-in kiosk** (`/portal/kiosk`) runs on a tablet by the door.
+  Staff unlock it once with the staff code; after that, families tap their
+  name (or scan their printed QR badge) to sign everyone in or out.
+- **The staff dashboard** (`/portal/admin`, staff code required) is where you
+  run everything: see who's here now with one-tap sign in/out, write daily
+  logs (one write-up can apply to several children at once), fix attendance
+  times, edit the weekly schedule, upload photos (for everyone or one
+  family), and manage families — including printing their QR badges from
+  **Families → Print badges**.
+
+### Demo mode vs. live mode
+
+With no configuration, the portal runs in **demo mode**: sample families
+(codes `1234`, `5678`, `2468`), staff code `9999`, and nothing is really
+saved. A banner reminds you it's a demo. To go live:
+
+1. **Create/restore a [Supabase](https://supabase.com) project** (free tier is
+   fine). In the SQL editor, paste and run the contents of
+   [`supabase/portal-schema.sql`](supabase/portal-schema.sql) — this creates the
+   portal tables and the private photo bucket.
+2. **Set environment variables** (locally in `.env.local`, and on Vercel under
+   Project → Settings → Environment Variables):
+   - `SUPABASE_URL` — your project URL (Supabase → Settings → API)
+   - `SUPABASE_SERVICE_ROLE_KEY` — the service role key (server-only; never
+     exposed to browsers)
+   - `PORTAL_STAFF_CODE` — the code you'll use for the admin area & kiosk
+   - `PORTAL_SESSION_SECRET` — any long random string
+     (`openssl rand -base64 32`)
+3. Redeploy, sign into `/portal/admin`, and add your real families.
+
+### Portal subdomain
+
+Once a subdomain (e.g. `portal.lacexplorers.online`) is pointed at the same
+Vercel project (Project → Settings → Domains → add the subdomain, then add
+the CNAME record it shows you at your DNS provider), the middleware serves
+the portal at that subdomain's root automatically — parents just visit
+`portal.lacexplorers.online`. The labels `portal`, `families`, and `app` are
+recognized out of the box (override with the `PORTAL_SUBDOMAINS` env var).
+
+### A note on security
+
+This is a pragmatic setup for a small home daycare: 4-digit codes are easy
+for families, sessions are signed cookies, sign-in attempts are rate-limited,
+the portal is excluded from search engines, and photos live in a private
+bucket served through short-lived links. It is *not* meant to guard highly
+sensitive data — don't put medical or financial details in daily logs.
 
 ---
 
