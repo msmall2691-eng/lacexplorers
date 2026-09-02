@@ -12,6 +12,7 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./data/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
@@ -39,6 +40,8 @@ const config: Config = {
         moss: "#C3C9AF", // Pale green
         wood: "#B79A74", // Warm wood / tan accent
         goldenrod: "#C6A15B", // Sparing warm accent (sun, focus)
+        water: "#A9C6D8", // Soft lake blue (parent portal accent)
+        berry: "#C1485F", // Error / alert (portal forms)
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "Cambria", "serif"],
