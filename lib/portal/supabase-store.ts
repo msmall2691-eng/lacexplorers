@@ -122,6 +122,15 @@ export const supabaseStore: PortalStore = {
     if (error) fail("updateFamily", error);
   },
   async deleteFamily(id) {
+    // The DB cascade removes this family's photo rows; clean their files out
+    // of the storage bucket first so nothing is left orphaned.
+    const { data: photos } = await supabase()
+      .from("portal_photos")
+      .select("storage_path")
+      .eq("family_id", id)
+      .not("storage_path", "is", null);
+    const paths = (photos ?? []).map((p) => p.storage_path as string);
+    if (paths.length > 0) await supabase().storage.from(PHOTO_BUCKET).remove(paths);
     const { error } = await supabase().from("portal_families").delete().eq("id", id);
     if (error) fail("deleteFamily", error);
   },
@@ -223,7 +232,18 @@ export const supabaseStore: PortalStore = {
         const { error } = await supabase()
           .from("portal_attendance")
           .insert({ child_id: childId, date, time_in: time, dropped_by: by ?? null });
-        if (error) fail("recordAttendance:insert", error);
+        // 23505 = another writer inserted the same (child, date) first (kiosk +
+        // admin racing); fall back to updating the row that won.
+        if (error?.code === "23505") {
+          const { error: retryErr } = await supabase()
+            .from("portal_attendance")
+            .update({ time_out: null, ...(by ? { dropped_by: by } : {}) })
+            .eq("child_id", childId)
+            .eq("date", date);
+          if (retryErr) fail("recordAttendance:retry", retryErr);
+        } else if (error) {
+          fail("recordAttendance:insert", error);
+        }
       }
     } else if (existing) {
       const { error } = await supabase()

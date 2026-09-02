@@ -1,3 +1,4 @@
+import { getStaffSession } from "@/lib/portal/auth";
 import { getStore } from "@/lib/portal/store";
 import { adminSaveSchedule } from "@/lib/portal/actions";
 import { WEEKDAY_NAMES } from "@/lib/portal/dates";
@@ -11,6 +12,9 @@ export default async function AdminSchedulePage({
 }: {
   searchParams: Promise<{ saved?: string }>;
 }) {
+  // Defense in depth: the layout renders the sign-in screen without a staff
+  // session, but pages must not fetch data for unauthenticated requests either.
+  if (!(await getStaffSession())) return null;
   const store = await getStore();
   const params = await searchParams;
   const schedule = await store.getSchedule();

@@ -1,3 +1,4 @@
+import { getStaffSession } from "@/lib/portal/auth";
 import { getStore } from "@/lib/portal/store";
 import { adminSaveDailyLog } from "@/lib/portal/actions";
 import { formatLongDate, todayISO } from "@/lib/portal/dates";
@@ -13,6 +14,9 @@ export default async function AdminLogPage({
 }: {
   searchParams: Promise<{ date?: string; child?: string; saved?: string }>;
 }) {
+  // Defense in depth: the layout renders the sign-in screen without a staff
+  // session, but pages must not fetch data for unauthenticated requests either.
+  if (!(await getStaffSession())) return null;
   const store = await getStore();
   const params = await searchParams;
   const date = /^\d{4}-\d{2}-\d{2}$/.test(params.date ?? "") ? params.date! : todayISO();
