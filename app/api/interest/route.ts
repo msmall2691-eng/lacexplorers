@@ -225,11 +225,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const providers: Promise<void>[] = [];
-  if (WEB3FORMS_ACCESS_KEY) providers.push(sendViaWeb3Forms(data));
-  if (FORMSPREE_FORM_ID) providers.push(sendViaFormspree(data));
-  if (RESEND_API_KEY && NOTIFY_EMAIL) providers.push(sendViaResend(data));
-  if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY) providers.push(saveToSupabase(data));
+  const providers: { name: string; run: Promise<void> }[] = [];
+  if (WEB3FORMS_ACCESS_KEY) providers.push({ name: "web3forms", run: sendViaWeb3Forms(data) });
+  if (FORMSPREE_FORM_ID) providers.push({ name: "formspree", run: sendViaFormspree(data) });
+  if (RESEND_API_KEY && NOTIFY_EMAIL) providers.push({ name: "resend", run: sendViaResend(data) });
+  if (SUPABASE_URL && SUPABASE_SERVICE_ROLE_KEY) providers.push({ name: "supabase", run: saveToSupabase(data) });
 
   // No provider configured yet — accept in "demo mode" so the site is usable
   // out of the box. Set WEB3FORMS_ACCESS_KEY or FORMSPREE_FORM_ID (simplest), or
@@ -242,14 +242,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, persisted: false });
   }
 
-  try {
-    await Promise.all(providers);
-    return NextResponse.json({ ok: true, persisted: true });
-  } catch (error) {
-    console.error("[interest] Delivery failed:", error);
+  // Run every configured provider independently. As long as one succeeds the
+  // inquiry is safely captured, so a single misconfigured provider (e.g. a
+  // shared Supabase env pointing at a missing table) can't take the whole form
+  // down — which is exactly what Promise.all would do.
+  const results = await Promise.allSettled(providers.map((p) => p.run));
+  results.forEach((result, i) => {
+    if (result.status === "rejected") {
+      console.error(`[interest] provider "${providers[i].name}" failed:`, result.reason);
+    }
+  });
+
+  const delivered = results.some((result) => result.status === "fulfilled");
+  if (!delivered) {
     return NextResponse.json(
       { ok: false, error: "We couldn't send your inquiry. Please try again." },
       { status: 500 },
     );
   }
+  return NextResponse.json({ ok: true, persisted: true });
 }
