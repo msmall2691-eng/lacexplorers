@@ -59,21 +59,15 @@ export function InterestForm() {
     setErrorMsg("");
 
     try {
-      const formspree = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
-      const res = formspree
-        ? await fetch(formspree, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(payload),
-          })
-        : await fetch("/api/interest", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
+      // Always go through our own API route so every submission is saved and
+      // the staff Inquiries board sees it. Email or other delivery is
+      // configured server-side in /api/interest — never by posting the form
+      // straight to a third-party service, which would bypass the database.
+      const res = await fetch("/api/interest", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");

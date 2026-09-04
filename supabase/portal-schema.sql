@@ -77,6 +77,28 @@ create table if not exists portal_photos (
 );
 create index if not exists portal_photos_date_idx on portal_photos (date desc);
 
+-- ---- interest_inquiries (marketing-site interest form) ----------------------
+-- Written by the marketing site's /api/interest route and read by the staff
+-- "Inquiries" board. Kept here so a from-scratch setup includes it. Fields are
+-- deliberately loose (mostly free text) to match whatever the form collects.
+create table if not exists interest_inquiries (
+  id uuid primary key default gen_random_uuid(),
+  parent_name text,
+  email text,
+  phone text,
+  child_name text,
+  child_age text,
+  child_dob text,
+  desired_start text,
+  desired_schedule text,
+  preferred_days jsonb,
+  school_name text,
+  message text,
+  submitted_at timestamptz,
+  created_at timestamptz not null default now()
+);
+create index if not exists interest_inquiries_created_idx on interest_inquiries (created_at desc);
+
 -- ---- lock the tables down (server-only access via service role) -------------
 alter table portal_families enable row level security;
 alter table portal_children enable row level security;
@@ -84,6 +106,7 @@ alter table portal_daily_logs enable row level security;
 alter table portal_attendance enable row level security;
 alter table portal_photos enable row level security;
 alter table portal_schedule enable row level security;
+alter table interest_inquiries enable row level security;
 
 -- ---- private storage bucket for photos --------------------------------------
 insert into storage.buckets (id, name, public)
