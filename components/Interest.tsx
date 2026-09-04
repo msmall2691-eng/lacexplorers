@@ -40,9 +40,9 @@ export function Interest() {
               Lake Arrowhead and North Waterboro families. We&rsquo;re completing
               Maine&rsquo;s family child care licensing process, and until it&rsquo;s
               finalized we operate within the state&rsquo;s license-exempt limit
-              (no more than two children who aren&rsquo;t our own at a time).
-              Share a little about your family and we&rsquo;ll reach out as places
-              open.
+              — up to three children who aren&rsquo;t our own at a time (four if at
+              least two are siblings). Share a little about your family and
+              we&rsquo;ll reach out as places open.
             </p>
 
             <ul className="mt-7 space-y-3">

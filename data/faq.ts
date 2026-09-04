@@ -73,7 +73,7 @@ export const faq: FaqItem[] = [
   {
     question: "Are you licensed yet?",
     answer:
-      "We're completing Maine's family child care licensing process now. Until it's finalized, we operate within the state's license-exempt limit — caring for no more than two children who aren't our own at a time — so we're fully within Maine law while we get started. Once we're licensed we'll welcome our full small group, and we reach out to interest-list families in order as places open.",
+      "We're completing Maine's family child care licensing process now. Until it's finalized, we operate within the state's license-exempt limit — caring for up to three children who aren't our own at a time (four if at least two of them are siblings) — so we're within Maine law while we get started. Once we're licensed we'll welcome our full small group, and we reach out to interest-list families in order as places open.",
   },
   {
     question: "Is Arrowhead Explorers a preschool?",
