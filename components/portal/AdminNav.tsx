@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/portal/admin/schedule", label: "Schedule" },
   { href: "/portal/admin/photos", label: "Photos" },
   { href: "/portal/admin/families", label: "Families" },
+  { href: "/portal/admin/inquiries", label: "Inquiries" },
 ];
 
 export default function AdminNav() {

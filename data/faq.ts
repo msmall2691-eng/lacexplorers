@@ -71,9 +71,9 @@ export const faq: FaqItem[] = [
       "Yes — cats indoors, and our dog has his own fenced section of the yard, so the children's play space stays theirs. Please tell us about any allergies.",
   },
   {
-    question: "Are you licensed?",
+    question: "Are you licensed yet?",
     answer:
-      "We're opening with a very small group while we complete Maine's family childcare licensing process, then growing carefully. Join the interest list and we'll reach out in order as places open.",
+      "We're completing Maine's family child care licensing process now. Until it's finalized, we operate within the state's license-exempt limit — caring for up to three children who aren't our own at a time (four if at least two of them are siblings) — so we're within Maine law while we get started. Once we're licensed we'll welcome our full small group, and we reach out to interest-list families in order as places open.",
   },
   {
     question: "Is Arrowhead Explorers a preschool?",
